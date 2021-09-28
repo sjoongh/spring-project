@@ -10,7 +10,7 @@
 	<context:annotation-config />
 	<context:component-scan base-package="com.bitacademy.myportal">
 		<context:exclude-filter type="annotation"
-			expression="org.springframework.stereotype.Controller" />
+			expression="org.springframework.stereotype.Contriller" />
 	</context:component-scan>
 
 </beans>
