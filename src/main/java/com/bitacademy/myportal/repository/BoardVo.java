@@ -23,6 +23,7 @@ public class BoardVo {
 	
 	public BoardVo(Long no, String title, Long hit, Date regDate, Long userNo, String userName) {
 		this.no = no;
+		this.title = title;
 		this.hit = hit;
 		this.regDate = regDate;
 		this.userNo = userNo;
@@ -30,11 +31,10 @@ public class BoardVo {
 	}
 	
 	// 전체 생성자
-	public BoardVo(Long no, String title, String content, Long hit,
-			Date regDate, Long userNo, String userName) {
-		this(no, title, hit, regDate, userNo, userName);
-		this.content = content;
-	}
+		public BoardVo(Long no, String title, String content, Long hit, Date regDate, Long userNo, String userName) {
+			this(no, title, hit, regDate, userNo, userName);
+			this.content = content;
+		}
 
 	public Long getNo() {
 		return no;
