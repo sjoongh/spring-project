@@ -19,6 +19,19 @@
 		</context:component-scan>
 		
 		<!-- 정적 자원을 위한 처리 -->
+		<!-- validator, conversionService, messageConverter를 자동 등록 -->
 		<mvc:annotation-driven />
+		<!-- 서블릿 컨테이너의 디폴트 서블릿 위임 핸들러 -->
 		<mvc:default-servlet-handler/>
+		
+		<!-- View Resolver -->
+		<bean id="viewResolver"
+			class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+			<property name="viewClass"
+				value="org.springframework.web.servlet.view.JstlView" /><!-- 뷰 클래스 -->
+			<property name="prefix"
+				value="/WEB-INF/views/" /><!-- 접두어 -->
+			<property name="suffix"
+				value=".jsp" /><!-- 접미어 -->
+		</bean>
 </beans>

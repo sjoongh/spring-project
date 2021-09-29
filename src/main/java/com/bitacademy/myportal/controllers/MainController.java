@@ -9,7 +9,8 @@ public class MainController {
 	@RequestMapping({"/", "/main"})
 	public ModelAndView home() {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/WEB-INF/views/home.jsp");
+//		mav.setViewName("/WEB-INF/views/home.jsp");
+		mav.setViewName("home"); // viewResolver가 prefix와 suffix를 조합 --> 완전한 ViewName 리턴
 		return mav;
 	}
 }
