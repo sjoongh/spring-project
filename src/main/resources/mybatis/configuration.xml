@@ -6,6 +6,7 @@
 <configuration>
 	<!-- 객체 별칭 -->
 	<typeAliases>
+		<typeAlias alias="guestbookVo" type="com.bitacademy.myportal.repository.GuestbookVo"/>
 	</typeAliases>
 	<!-- 매핑 설정 -->
 	<mappers>
