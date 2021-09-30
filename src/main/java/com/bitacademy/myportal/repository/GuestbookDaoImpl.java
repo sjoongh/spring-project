@@ -14,8 +14,7 @@ public class GuestbookDaoImpl implements GuestbookDao {
 	@Override
 	public List<GuestbookVo> selectAll() {
 		List<GuestbookVo> list = sqlSession.selectList("guestbook.selectAll");
-		// TODO Auto-generated method stub
-		return null;
+		return list;
 	}
 
 	@Override
