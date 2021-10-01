@@ -14,8 +14,8 @@ public class BoardDaoImpl implements BoardDao {
 	
 	@Override
 	public List<BoardVo> selectAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<BoardVo> list = sqlSession.selectList("board.selectAll");
+		return list;
 	}
 
 	@Override
@@ -26,19 +26,19 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public BoardVo getContent(Long no) {
-		// TODO Auto-generated method stub
-		return null;
+	public BoardVo view(int no) {
+		return sqlSession.selectOne("board.view", no);
 	}
 
 	@Override
 	public int update(BoardVo boardVo) {
-		// TODO Auto-generated method stub
-		return 0;
+		// int형으로 하는게 맞나?
+		int updatedCount = sqlSession.update("board.update", boardVo);
+		return updatedCount;
 	}
 
 	@Override
-	public int delete(Long no) {
+	public int delete(int no) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

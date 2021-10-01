@@ -18,13 +18,13 @@
 		</tr>
 		<tr>
 			<td>제목</td>
-			<td>제목입니다.</td>
+			<td>${ view.title }</td>
 		</tr>
 		<tr>
 			<td>내용</td>
 			<td>
 				<div>
-					내용 1입니다.<br>
+					${ vo.content }<br>
 					내용 2입니다.<br>
 					내용 3입니다.
 				</div>

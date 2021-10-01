@@ -15,14 +15,14 @@ public class BoardServiceImpl implements BoardService {
 	private BoardDao boardDaoImpl;
 	@Override
 	public List<BoardVo> getList() {
-		// TODO Auto-generated method stub
-		return null;
+		List<BoardVo> list = boardDaoImpl.selectAll();
+		return list;
 	}
 
 	@Override
-	public BoardVo getContent(Long no) {
-		// TODO Auto-generated method stub
-		return null;
+	public BoardVo view(int no) {
+		// 좀이상?..
+		return boardDaoImpl.view(no);
 	}
 
 	@Override
@@ -33,8 +33,8 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public boolean update(BoardVo vo) {
-		// TODO Auto-generated method stub
-		return false;
+		int updatedCount = boardDaoImpl.update(vo);
+		return 1 == updatedCount;
 	}
 
 }

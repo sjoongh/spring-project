@@ -14,4 +14,26 @@
 		#{userNo}
 	)
 	</insert>
+	
+	<update id="update" parameterType="boardVo">
+	<!-- TODO WHERE조건은 넣어야 하는가?  -->
+	UPDATE board
+	SET title=#{title}, 
+	content=#{content}
+	WHERE no = #{userNo}
+	</update>
+	
+	<select id="view" parameterType="int" resultType="boardVo">
+	<!-- parameterType 수정?? -->
+	Select title, content
+	FROM board
+	WHERE no = #{no};
+	</select>
+	
+	<select id="selectAll" resultType="boardVo">
+	SELECT b.no, title, content, hit, reg_date as regDate, 
+			user_no as userNo, name as userName
+	FROM board b, users u
+	WHERE b.user_no = u.no
+	</select>
 </mapper>
