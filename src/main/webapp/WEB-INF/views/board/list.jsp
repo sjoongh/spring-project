@@ -23,17 +23,15 @@
 		<c:forEach items="${ list }" var="vo">
 		<tr>
 			<td>${ vo.no }</td>
-			<td><a href="">${ vo.title }</a></td>
+			<td><a href="<c:url value="/board/view/${ vo.no }"/>">${ vo.title }</a></td>
 			<td>${ vo.userName }</td>
 			<td>${ vo.hit }</td>
-			<td>${ regDate }</td>
+			<td>${ vo.regDate }</td>
 			<td><a href="">삭제</a><a href="<c:url value="/board/update"/>">/수정</a>
-			<a href="<c:url value="/board/view"/> ">/조회</a></td>
 		</tr>
 		</c:forEach>
 		<tr>
-			<td colspan="6"><a href="<c:url value="/board/write"/>">
-			글쓰기</a></td>
+			<td colspan="6"><a href="<c:url value="/board/write"/>">글쓰기</a></td>
 		</tr>
 	</table>
 </body>

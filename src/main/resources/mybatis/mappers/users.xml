@@ -26,4 +26,12 @@
 	FROM users
 	WHERE email=#{value}	
 	</select>
+	
+	<update id = "updateUser">
+	UPDATE users
+	SET 
+		email = #{email}, name = #{name},
+		password = #{password}, gender = #{gender}
+	WHERE no = #{no}
+	</update>
 </mapper>

@@ -20,9 +20,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public BoardVo view(int no) {
-		// 좀이상?..
-		return boardDaoImpl.view(no);
+	public BoardVo view(Long no) {
+		BoardVo vo = boardDaoImpl.view(no);
+		return vo;
 	}
 
 	@Override

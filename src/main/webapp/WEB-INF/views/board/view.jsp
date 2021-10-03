@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -18,22 +19,20 @@
 		</tr>
 		<tr>
 			<td>제목</td>
-			<td>${ view.title }</td>
+			<td>${vo.getTitle() }</td>
 		</tr>
 		<tr>
 			<td>내용</td>
 			<td>
 				<div>
-					${ vo.content }<br>
-					내용 2입니다.<br>
-					내용 3입니다.
+					${vo.getContent() }
 				</div>
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2">
-				<a href="">글목록</a>
-				<a href="">글수정</a>
+				<a href="<c:url value="/board/list"/>">글목록</a>
+				<a href="<c:url value="/board/update"/>">글수정</a>
 			</td>
 		</tr>
 	</table>

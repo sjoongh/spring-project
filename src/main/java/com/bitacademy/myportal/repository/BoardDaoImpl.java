@@ -26,8 +26,10 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public BoardVo view(int no) {
-		return sqlSession.selectOne("board.view", no);
+	public BoardVo view(Long no) {
+		BoardVo vo = sqlSession.selectOne("board.selectOne", no);
+//		int hit = sqlSession.update("board.updateHit", no);
+		return vo;
 	}
 
 	@Override

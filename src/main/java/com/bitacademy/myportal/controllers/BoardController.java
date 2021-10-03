@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bitacademy.myportal.repository.BoardVo;
 import com.bitacademy.myportal.repository.UserVo;
@@ -31,10 +31,12 @@ public class BoardController {
 	}
 	
 	// 게시물 조회용 
-	@RequestMapping(value="/view", method = RequestMethod.GET)
-	public void view(@RequestParam("no") int no, Model model) {
+	@RequestMapping("/view/{no}")
+	public String view(@PathVariable Long no, Model model) {
 		BoardVo vo = boardServiceImpl.view(no);
-		model.addAttribute("view", vo);
+		model.addAttribute("vo", vo);
+		
+		return "/board/view";
 	}
 	// 게시물 작성 폼
 	@RequestMapping(value="/write", method=RequestMethod.GET)
