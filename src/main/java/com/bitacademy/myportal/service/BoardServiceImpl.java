@@ -32,9 +32,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public boolean update(BoardVo vo) {
-		int updatedCount = boardDaoImpl.update(vo);
-		return 1 == updatedCount;
+	public int update(BoardVo vo) {
+		return boardDaoImpl.update(vo);
 	}
 
 }

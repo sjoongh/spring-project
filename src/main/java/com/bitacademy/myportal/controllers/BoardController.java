@@ -66,22 +66,29 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
+//	// 게시물 수정 폼
+//	@RequestMapping("/update/{no}")
+//	public String updateForm(@PathVariable Long no, Model model) {
+//		BoardVo vo = boardServiceImpl.view(no);
+//		model.addAttribute("vo", vo);
+//		
+//		return "board/update";
+//	}
+
 	// 게시물 수정 폼
-	@RequestMapping(value="/update", method=RequestMethod.GET)
-	public String updateForm(HttpSession session) {
+	@RequestMapping(value = "/update/{no}", method=RequestMethod.GET)
+	public String updateform(@PathVariable Long no, Model model) {
+		BoardVo vo = boardServiceImpl.view(no);
+		model.addAttribute("vo", vo);
 		return "board/update";
 	}
 	
 	// 게시물 수정
 	@RequestMapping(value="/update", method=RequestMethod.POST)
-	public String update(@ModelAttribute BoardVo boardVo,
-					HttpSession session) {
-		UserVo authUser = (UserVo)session.getAttribute("authUser");
-		if (authUser == null) {
-			return "redirect:/";
-		}
-		boardVo.setUserNo(authUser.getNo());
+	public String update(@ModelAttribute BoardVo boardVo) {
 		boardServiceImpl.update(boardVo);
+		
 		return "redirect:/board/list";
 	}
+	
 }

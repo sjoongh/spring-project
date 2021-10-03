@@ -28,15 +28,12 @@ public class BoardDaoImpl implements BoardDao {
 	@Override
 	public BoardVo view(Long no) {
 		BoardVo vo = sqlSession.selectOne("board.selectOne", no);
-//		int hit = sqlSession.update("board.updateHit", no);
 		return vo;
 	}
 
 	@Override
 	public int update(BoardVo boardVo) {
-		// int형으로 하는게 맞나?
-		int updatedCount = sqlSession.update("board.update", boardVo);
-		return updatedCount;
+		return sqlSession.update("board.update", boardVo);
 	}
 
 	@Override

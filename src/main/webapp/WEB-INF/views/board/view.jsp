@@ -32,7 +32,7 @@
 		<tr>
 			<td colspan="2">
 				<a href="<c:url value="/board/list"/>">글목록</a>
-				<a href="<c:url value="/board/update"/>">글수정</a>
+				<a href="<c:url value="/board/update/${vo.no }"/>">글수정</a>
 			</td>
 		</tr>
 	</table>

@@ -15,12 +15,11 @@
 	)
 	</insert>
 	
-	<update id="update" parameterType="long">
-	<!-- TODO WHERE조건은 넣어야 하는가?  -->
-	UPDATE board
-	SET title=#{title}, 
-	content=#{content}
-	WHERE no = #{userNo}
+	<update id="update" parameterType="boardVo">
+	UPDATE #{board}
+	SET #{title}, 
+	#{content}
+	WHERE #{no}
 	</update>
 	
 	<select id="selectOne" parameterType="long" resultType="boardVo">
