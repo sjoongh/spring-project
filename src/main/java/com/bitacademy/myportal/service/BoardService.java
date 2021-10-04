@@ -9,4 +9,5 @@ public interface BoardService {
 	public BoardVo view(Long no); // 게시물 조회
 	public boolean write(BoardVo vo); // 게시물 작성 기능
 	public boolean update(BoardVo vo); // 게시물 변경 가능
+	public void updateHit(Long no);
 }

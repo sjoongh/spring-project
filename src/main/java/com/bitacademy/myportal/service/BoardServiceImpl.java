@@ -24,6 +24,7 @@ public class BoardServiceImpl implements BoardService {
 		BoardVo vo = boardDaoImpl.view(no);
 		return vo;
 	}
+	
 
 	@Override
 	public boolean write(BoardVo vo) {
@@ -35,6 +36,11 @@ public class BoardServiceImpl implements BoardService {
 	public boolean update(BoardVo vo) {
 		int updatedCount = boardDaoImpl.update(vo);
 		return 1 == updatedCount;
+	}
+	
+	@Override
+	public void updateHit(Long hit) {
+		boardDaoImpl.updateHit(hit);
 	}
 
 }

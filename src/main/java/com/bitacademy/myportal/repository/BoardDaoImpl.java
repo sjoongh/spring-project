@@ -35,6 +35,11 @@ public class BoardDaoImpl implements BoardDao {
 	public int update(BoardVo boardVo) {
 		return sqlSession.update("board.update", boardVo);
 	}
+	
+	@Override
+	public Long updateHit(Long hit) {
+		return (long) sqlSession.update("board.updateHit", hit);
+	}
 
 	@Override
 	public int delete(int no) {

@@ -30,14 +30,16 @@ public class BoardController {
 		return "/board/list";
 	}
 	
-	// 게시물 조회용 
+	// 게시물 상세조회
 	@RequestMapping("/view/{no}")
 	public String view(@PathVariable Long no, Model model) {
+		boardServiceImpl.updateHit(no);
 		BoardVo vo = boardServiceImpl.view(no);
 		model.addAttribute("vo", vo);
 		
 		return "/board/view";
 	}
+	
 	// 게시물 작성 폼
 	@RequestMapping(value="/write", method=RequestMethod.GET)
 	public String writeForm(HttpSession session) {
