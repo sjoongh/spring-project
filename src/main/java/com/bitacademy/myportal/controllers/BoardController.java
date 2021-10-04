@@ -65,15 +65,6 @@ public class BoardController {
 		boardServiceImpl.write(boardVo);
 		return "redirect:/board/list";
 	}
-	
-//	// 게시물 수정 폼
-//	@RequestMapping("/update/{no}")
-//	public String updateForm(@PathVariable Long no, Model model) {
-//		BoardVo vo = boardServiceImpl.view(no);
-//		model.addAttribute("vo", vo);
-//		
-//		return "board/update";
-//	}
 
 	// 게시물 수정 폼
 	@RequestMapping(value = "/update/{no}", method=RequestMethod.GET)
@@ -84,11 +75,11 @@ public class BoardController {
 	}
 	
 	// 게시물 수정
-	@RequestMapping(value="/update", method=RequestMethod.POST)
+	@RequestMapping(value="/update/{no}", method=RequestMethod.POST)
 	public String update(@ModelAttribute BoardVo boardVo) {
+		System.out.println(boardVo.toString());
 		boardServiceImpl.update(boardVo);
-		
-		return "redirect:/board/list";
+		return "redirect:/board";
 	}
 	
 }

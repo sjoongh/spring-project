@@ -16,10 +16,10 @@
 	</insert>
 	
 	<update id="update" parameterType="boardVo">
-	UPDATE #{board}
-	SET #{title}, 
-	#{content}
-	WHERE #{no}
+	UPDATE board
+	SET title = #{title}, 
+	content = #{content}
+	WHERE no = #{no}
 	</update>
 	
 	<select id="selectOne" parameterType="long" resultType="boardVo">

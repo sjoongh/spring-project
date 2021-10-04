@@ -8,7 +8,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 </head>
 <body>
-	<form action="<c:url value="/board/update" />" method="post">
+	<form action="<c:url value="/board/update/${vo.no}" />" method="post">
 		<table border="1" width="640">
 			<tr>
 				<td colspan="2"><h3>게시판</h3></td>
@@ -19,19 +19,18 @@
 			<tr>
 				<td>제목</td>
 				<td>
-					<input type="text" name="title" value="${ vo.getTitle() }">
+					<input type="text" name="title" value="${ vo.title }">
 				</td>
 			</tr>
 			<tr>
 				<td>내용</td>
 				<td>
-					<textarea id="content" name="content">${ vo.getContent() }</textarea>
+					<textarea id="content" name="content">${ vo.content }</textarea>
 				</td>
 			</tr>
 			<tr>
 				<td colspan="2">
 					<a href="">취소</a>
-					<!--  <input name="no" type="hidden">-->
 					<input type="submit" value="수정">
 				</td>
 			</tr>
