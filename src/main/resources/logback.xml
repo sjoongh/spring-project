@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Logback configuration -->
-<!-- configuration debug = "true"면 LogBack 자체를 디버깅 -->
+<!-- Logback cofiguration -->
+<!-- configuration debug="true"면 LogBack 자체를 디버깅 -->
 <configuration debug="true">
-	<!-- Appender: 어디에, 어떤 로그를 기록할 것인지 설정 -->
-	<!-- 로그 등급 : TRACE < DEBUG < INFO < WARN < ERROR < FATAL -->
+	<!-- Appender: 어디에, 어떤 로그를 기록할 것인지를 설정 -->
+	<!-- 로그 등급: TRACE < DEBUG < INFO < WARN < ERROR < FATAL -->
 	<appender name="consoleAppender"
-		class="ch.qos.logback.core.ConsoleAppender">
+		class="ch.qos.logback.core.ConsoleAppender">\
 		<encoder>
 			<charset>UTF-8</charset>
 			<Pattern>
-			$d{HH:mm:ss.SSS} %thread %-5level %logger{5} - %msg%n
+			%d{HH:mm:ss.SSS} %thread %-5level %logger{5} - %msg%n
 			</Pattern>
 		</encoder>
 	</appender>
@@ -21,22 +21,22 @@
 		<encoder>
 			<charset>UTF-8</charset>
 			<Pattern>
-			$d{HH:mm:ss.SSS} %thread %-5level %logger{5} - %msg%n
+			%d{HH:mm:ss.SSS} %thread %-5level %logger{5} - %msg%n
 			</Pattern>
 		</encoder>
 		<!-- 롤링을 수행할 정책 -->
 		<rollingPolicy
-			class="ch.qos.Logback.core.rolling.FixedWindowRollingPolicy">
+			class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
 			<FileNamePattern>
-			\log-my-portal\myportal.%1.log.zip
-			</FileNamePattern>
+			\log-myportal\myportal.%i.log.zip
+			</FileNamePattern>	
 			<MinIndex>1</MinIndex>
 			<MaxIndex>10</MaxIndex>
 		</rollingPolicy>
 		<!-- 롤링이 수행될 상황 설정 -->
 		<triggeringPolicy
 			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
-			<MaxFileSize>1MB</MaxFileSize>
+			<MaxFileSize>1MB</MaxFileSize>	
 		</triggeringPolicy>
 	</appender>
 	
@@ -44,9 +44,8 @@
 	<logger name="com.bitacademy.myportal" level="DEBUG">
 		<appender-ref ref="consoleAppender" />
 	</logger>
-	
 	<!-- TODO : 가장 적합한 롤링 정책을 수립한 후 로그 남기기 -->
-	<!-- <root level="TRACE">
+	<!-- root level="TRACE">
 		<appender-ref ref="fileAppender" />
-	</root> -->
+	</root -->
 </configuration>
