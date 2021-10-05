@@ -27,7 +27,7 @@
 			<td>${ vo.userName }</td>
 			<td>${ vo.hit }</td>
 			<td>${ vo.regDate }</td>
-			<td><a href="">삭제</a><a href="<c:url value="/board/update/${vo.no }"/>">/수정</a>
+			<td><a href="<c:url value="/board/delete/${vo.no}"/>">삭제</a><a href="<c:url value="/board/update/${vo.no }"/>">/수정</a>
 		</tr>
 		</c:forEach>
 		<tr>

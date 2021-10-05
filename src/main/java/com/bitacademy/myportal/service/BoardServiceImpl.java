@@ -42,5 +42,10 @@ public class BoardServiceImpl implements BoardService {
 	public void updateHit(Long hit) {
 		boardDaoImpl.updateHit(hit);
 	}
+	
+	@Override
+	public void delete(int no) {
+		boardDaoImpl.delete(no);
+	}
 
 }

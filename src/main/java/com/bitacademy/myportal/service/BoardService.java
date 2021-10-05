@@ -10,4 +10,5 @@ public interface BoardService {
 	public boolean write(BoardVo vo); // 게시물 작성 기능
 	public boolean update(BoardVo vo); // 게시물 변경 가능
 	public void updateHit(Long no);
+	public void delete(int no);
 }

@@ -69,6 +69,12 @@ public class BoardController {
 		
 		return "redirect:/board/list";
 	}
+	
+	@RequestMapping(value="/delete/{no}", method=RequestMethod.POST)
+	public String delete(@ModelAttribute int no) {
+		boardServiceImpl.delete(no);
+		return "dedirect:/board/list";
+	}
 
 	// 게시물 수정 폼
 	@RequestMapping(value = "/update/{no}", method=RequestMethod.GET)
