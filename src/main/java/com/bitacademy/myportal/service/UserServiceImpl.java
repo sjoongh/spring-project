@@ -30,5 +30,11 @@ public class UserServiceImpl implements UserService {
 		UserVo userVo = userDaoImpl.selectUser(email);
 		return userVo;
 	}
+	
+	@Override
+	public boolean loginmodify(UserVo userVo) {
+		int loginCount = userDaoImpl.loginmodify(userVo);
+		return 1 == loginCount; 
+	}
 
 }

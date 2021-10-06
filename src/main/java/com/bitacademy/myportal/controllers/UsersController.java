@@ -150,4 +150,43 @@ public class UsersController {
 		
 		return map;
 	}
+	
+	// 회원 정보 수정
+	@RequestMapping(value = "/loginupdate", method=RequestMethod.GET)
+	public String loginupdateForm() {
+		return "/users/loginupdate";
+	}
+	
+	@RequestMapping(value="/loginmodify", method=RequestMethod.POST)
+	public String modifyAction(@ModelAttribute UserVo userVo,
+				@RequestParam(value="name", required=false)String name,
+				@RequestParam(value="password", required=false)String password,
+				HttpSession session) {
+		if (name.length() == 0 || password.length() == 0) {
+			logger.debug("Error!");
+			return "redirect:/users/loginmodify";
+		}
+		
+		System.out.println("정보 수정" + userVo);
+		
+		boolean bSuccess = false;
+		try {
+			bSuccess = userServiceImpl.loginmodify(userVo);
+		} catch (UserDaoException e) {
+//			System.err.println("에러상황의 UserVo:" + userVo);
+			logger.debug("에러 상황의  UserVo:" + userVo);
+			e.printStackTrace();
+		}
+		
+		if (bSuccess) {	// 성공
+			UserVo authUser = (UserVo) session.getAttribute("authUser");
+			authUser.setName(name);
+//			System.out.println("현재 세션 이름:" + authUser.getName());
+			logger.debug("현재 세션 이름:" + authUser.getName());
+			
+			return "redirect:/";
+		}
+		return "redirect:/users/modify";
+	}
+	
 }
