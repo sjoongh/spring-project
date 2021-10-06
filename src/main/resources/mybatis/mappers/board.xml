@@ -15,6 +15,11 @@
 	)
 	</insert>
 	
+	<delete id="delete" parameterType="long">
+		DELETE FROM board
+		WHERE no = #{no}
+	</delete>
+	
 	<update id="update" parameterType="boardVo">
 	UPDATE board
 	SET title = #{title}, 

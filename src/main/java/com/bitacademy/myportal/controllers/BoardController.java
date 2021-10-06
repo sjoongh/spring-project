@@ -70,10 +70,11 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
-	@RequestMapping(value="/delete/{no}", method=RequestMethod.POST)
-	public String delete(@ModelAttribute int no) {
+	@RequestMapping(value="/delete/{no}", method=RequestMethod.GET)
+	public String delete(@ModelAttribute Long no) {
 		boardServiceImpl.delete(no);
-		return "dedirect:/board/list";
+		System.out.print(no);
+		return "redirect:/board/list";
 	}
 
 	// 게시물 수정 폼

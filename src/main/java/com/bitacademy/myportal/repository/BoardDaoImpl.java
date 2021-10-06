@@ -42,8 +42,8 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public int delete(int no) {
-		return sqlSession.delete("board.delete", no);
+	public void delete(Long no) {
+		sqlSession.delete("board.delete", no);
 	}
 
 }
