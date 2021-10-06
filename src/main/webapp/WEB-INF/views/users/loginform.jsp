@@ -5,11 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>My Homepage</title>
+<title>로그인화면</title>
 <!-- TODO: 현재 페이지에 적절한 CSS를 임포트하십시오. -->
 <link type="text/css" 
 	rel="stylesheet" 
 	href="<%= request.getContextPath() %>/css/users.css"/>
+	<link rel="stylesheet" 
+	href="<c:url value="/css/user.css" />">
 </head>
 <body>
 	<form id="login-form" 

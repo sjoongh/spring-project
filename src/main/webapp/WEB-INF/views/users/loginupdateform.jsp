@@ -22,7 +22,7 @@
 				<form
 					id="modify-form"
 					name="updateForm" 
-					action="<c:url value="/users/modify"/>"
+					action="<c:url value="/users/loginupdate"/>"
 					method="POST">
 					<input type="hidden" name="no" value="${authUser.getNo() }">
 					
@@ -33,7 +33,7 @@
 					<input name="name" type="text" value="${authUser.getName() }"><br>
 				
 					<label for="password">비밀번호</label>
-					<input name="password" type="password" placeholder="새로운 비밀번호를 입력하십시오">
+					<input name="password" type="password" placeholder="새로운 비밀번호를 입력하십시오"><br>
 				
 					<label for="gender">성별</label>
 					<c:choose>

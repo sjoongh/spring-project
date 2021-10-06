@@ -105,8 +105,7 @@ public class UsersController {
 		logger.debug("password:" + password);
 		
 		if (email.length() == 0 || password.length() == 0) {
-//			System.err.println("로그인 불가!");
-			logger.error("로그인 불가!");
+			System.err.println("로그인 불가!");
 			return "redirect:/users/login";
 		}
 		
@@ -121,6 +120,7 @@ public class UsersController {
 			return "redirect:/";
 		} else {
 			//	로그인 실패
+			logger.error("로그인 불가!");
 			return "redirect:/users/login";
 		}
 	}
@@ -151,27 +151,31 @@ public class UsersController {
 		return map;
 	}
 	
-	// 회원 정보 수정
+//	회원 정보 수정
 	@RequestMapping(value = "/loginupdate", method=RequestMethod.GET)
-	public String loginupdateForm() {
-		return "/users/loginupdate";
+	public String modifyForm() {
+		return "/users/loginupdateform";
 	}
 	
-	@RequestMapping(value="/loginmodify", method=RequestMethod.POST)
+	@RequestMapping(value="/loginupdate", method=RequestMethod.POST)
 	public String modifyAction(@ModelAttribute UserVo userVo,
-				@RequestParam(value="name", required=false)String name,
-				@RequestParam(value="password", required=false)String password,
-				HttpSession session) {
+			@RequestParam(value="name", required=false)
+				String name,
+			@RequestParam(value="password", required=false)
+				String password,
+			HttpSession session) {
+		
 		if (name.length() == 0 || password.length() == 0) {
-			logger.debug("Error!");
-			return "redirect:/users/loginmodify";
+//			System.err.println("정보 수정 불가!");
+			logger.debug("정보 수정 불가!");
+			return "redirect:/users/loginupdate";
 		}
 		
 		System.out.println("정보 수정" + userVo);
 		
 		boolean bSuccess = false;
 		try {
-			bSuccess = userServiceImpl.loginmodify(userVo);
+			bSuccess = userServiceImpl.loginupdate(userVo);
 		} catch (UserDaoException e) {
 //			System.err.println("에러상황의 UserVo:" + userVo);
 			logger.debug("에러 상황의  UserVo:" + userVo);
@@ -186,7 +190,7 @@ public class UsersController {
 			
 			return "redirect:/";
 		}
-		return "redirect:/users/modify";
+		return "redirect:/users/loginupdate";
 	}
 	
 }

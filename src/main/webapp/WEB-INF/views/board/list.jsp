@@ -4,10 +4,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<title>My Homepage</title>
+	<title>게시판</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<link rel="stylesheet"
+	href="<c:url value="/css/board.css" />" />
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/includes/home.jsp" />
 	<table border="1" width="640">
 		<tr>
 			<td colspan="6"><h3>게시판</h3></td>
@@ -34,5 +37,6 @@
 			<td colspan="6"><a href="<c:url value="/board/write"/>">글쓰기</a></td>
 		</tr>
 	</table>
+	<%@ include file="/WEB-INF/views/includes/footer.jsp" %>
 </body>
 </html>

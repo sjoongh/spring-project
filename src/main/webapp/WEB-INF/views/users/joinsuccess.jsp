@@ -13,7 +13,7 @@
 		회원가입을 축하합니다.
 	</p>
 	<p>
-		<a href="">로그인하기</a>
+		<a href="/myportal/users/login">로그인하기</a>
 	</p>
 
 </body>

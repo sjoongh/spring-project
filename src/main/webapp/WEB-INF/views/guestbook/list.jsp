@@ -6,10 +6,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>My Homepage</title>
+<title>방명록</title>
+<link rel="stylesheet"
+	href="<c:url value="/css/guestbook.css" />" />
 </head>
 <body>
-  
+	<jsp:include page="/WEB-INF/views/includes/home.jsp" />
 	<h1>방명록</h1>
 	<form action="<c:url value="/guestbook/write" />" method="POST">
 	<table border=1 width=500>
@@ -46,6 +48,6 @@
 		</tr>
 	</table>
 	</c:forEach>
-    
+    <%@ include file="/WEB-INF/views/includes/footer.jsp" %>
 </body>
 </html>

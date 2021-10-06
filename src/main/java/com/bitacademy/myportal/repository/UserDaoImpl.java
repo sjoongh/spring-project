@@ -46,5 +46,10 @@ public class UserDaoImpl implements UserDao {
 		UserVo vo = sqlSession.selectOne("users.selectUserByEmailAndPassword", userMap);
 		return vo;
 	}
+	
+	@Override
+	public int updateUser(UserVo vo) {
+		return sqlSession.update("users.updateUser", vo);
+	}
 
 }

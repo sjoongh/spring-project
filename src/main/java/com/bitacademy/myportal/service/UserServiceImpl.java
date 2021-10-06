@@ -32,9 +32,9 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public boolean loginmodify(UserVo userVo) {
-		int loginCount = userDaoImpl.loginmodify(userVo);
-		return 1 == loginCount; 
+	public boolean loginupdate(UserVo vo) {
+		int updatedCount = userDaoImpl.updateUser(vo);
+		return 1 == updatedCount;
 	}
 
 }

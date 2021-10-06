@@ -10,6 +10,8 @@
 	<title>회원 가입폼</title>
 	<script src="<c:url value="/javascript/jquery/jquery-3.6.0.js" />"></script>
 	<script src="<c:url value="/javascript/users.js" />"></script>
+	<link rel="stylesheet" 
+	href="<c:url value="/css/user.css" />">
 </head>
 <body>
 	<h1>회원 가입</h1>
@@ -26,7 +28,6 @@
 		name="registerForm" 
 		action="${pageContext.servletContext.contextPath }/users/join"
 		method="POST">
-		<!-- input type="hidden" name="a" value="join" -->
 		
 		<label for="name">이름</label>
 		<!-- input name="name" type="text" placeholder="이름을 입력하십시오"><br -->

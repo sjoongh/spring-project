@@ -4,7 +4,7 @@
 		<!-- navigation -->
 		<div id="navigation">
 			<ul>
-				<li><a href="#">Home</a></li>
+				<li><a href="/myportal/main">Home</a></li>
 				<li><a href="<c:url value="/guestbook"/>">방명록</a></li>
 				<li><a href="<c:url value="/board"/>">게시판</a></li>
 			</ul>
