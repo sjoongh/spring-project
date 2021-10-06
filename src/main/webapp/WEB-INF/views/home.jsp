@@ -12,11 +12,6 @@
 	src="<c:url value="/javascript/jquery/jquery-3.6.0.js" />"></script>	
 <link rel="stylesheet"
 	href="<c:url value="/css/main.css" />" />
-	<style>
-	#clock {
-		font-size: 20px;
-	}
-	</style>
 </head>
 <body>
 	<div id="container">
@@ -33,6 +28,7 @@
 		<%-- import footer.jsp --%>
 		<%@ include file="/WEB-INF/views/includes/footer.jsp" %>
 	</div>
+	<h1>My Portal 홈페이지에 오신 것을 환영합니다.</h1>
 </body>
 
 </html>
